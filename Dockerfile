@@ -4,7 +4,7 @@ VOLUME /tmp
 
 EXPOSE 8081
 
-ARG JAR_FILE="target/spring-petclinic-3.0.0-SNAPSHOT.jar"
+ARG JAR_FILE="target/*.jar"
 
 ADD ${JAR_FILE} app.jar
 
