@@ -1,0 +1,11 @@
+FROM openjdk:17-jdk-slim
+
+VOLUME /tmp
+
+ADD . /project/
+
+WORKDIR "/project"
+
+ENTRYPOINT ["./mvnw","package"]
+
+#ENTRYPOINT ["ls", "/project/", "-a"]
