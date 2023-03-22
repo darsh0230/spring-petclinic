@@ -6,6 +6,10 @@ ADD . /project/
 
 WORKDIR "/project"
 
-ENTRYPOINT ["./mvnw","package"]
+RUN echo "#!/bin/bash"  >> ./buildScript.sh
+RUN echo "./mvnw package" >> ./buildScript.sh
+RUN echo "mv ./target/*.jar ./target/App.jar" >> ./buildScript.sh
 
-#ENTRYPOINT ["ls", "/project/", "-a"]
+RUN ["chmod", "+x", "/project/buildScript.sh"]
+
+ENTRYPOINT ["./buildScript.sh"]
